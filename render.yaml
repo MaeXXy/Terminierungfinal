@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: termin-tool-final
+    env: python
+    plan: free
+    buildCommand: ""
+    startCommand: "python app.py"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11
+    autoDeploy: true

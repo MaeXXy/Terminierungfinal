@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>Termin wählen</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+</head>
+<body class="bg-gray-100 p-4">
+  <div class="max-w-md mx-auto bg-white p-6 rounded shadow">
+    <h2 class="text-xl font-bold mb-4">Willkommen, {{ plate }}</h2>
+    <form action="/book" method="POST">
+      <input type="hidden" name="plate" value="{{ plate }}">
+      <label class="block mb-2">Verfügbare Termine:</label>
+      <select name="termin" class="w-full p-2 border rounded mb-4">
+        {% for t in termine %}
+        <option value="{{ t }}">{{ t }}</option>
+        {% endfor %}
+      </select>
+      <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded">Termin buchen</button>
+    </form>
+  </div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Panel</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+</head>
+<body class="bg-gray-100 p-6">
+  <div class="max-w-2xl mx-auto bg-white p-6 rounded shadow">
+    <h2 class="text-xl font-bold mb-4">Admin Panel</h2>
+    <a href="/logout" class="text-sm text-blue-600 float-right">Logout</a>
+
+    <form method="POST" class="mb-6">
+      <h3 class="font-semibold">Neues Kennzeichen hinzufügen</h3>
+      <input type="text" name="new_plate" placeholder="z. B. B-AB123" class="w-full p-2 border rounded mb-2">
+      <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded">Hinzufügen</button>
+    </form>
+
+    <form method="POST" class="mb-6">
+      <h3 class="font-semibold">Neuen Termin hinzufügen</h3>
+      <input type="text" name="new_termin" placeholder="z. B. 2025-08-01 10:00" class="w-full p-2 border rounded mb-2">
+      <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded">Hinzufügen</button>
+    </form>
+
+    <div>
+      <h3 class="font-semibold mb-2">Aktuelle Kunden:</h3>
+      <ul class="list-disc list-inside">
+        {% for k in kunden %}
+        <li>{{ k }} → Termin: {{ kunden[k]['termin'] }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <div class="mt-4">
+      <h3 class="font-semibold mb-2">Verfügbare Termine:</h3>
+      <ul class="list-disc list-inside">
+        {% for t in termine %}
+        <li>{{ t }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</body>
+</html>
